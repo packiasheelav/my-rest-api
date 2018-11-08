@@ -1,17 +1,15 @@
 //check if it is english alphabets
-function englishAlphabets(inputtxt)
-      { 
-      var letters = /^[A-Za-z]+$/;
-      if( letters.test(inputtxt))
-      {
-      return true;
-      }
-      else
-      {
-      return false;
-      }
-      }
-
+function englishAlphabets(inputtxt) {
+  var letters = /^[A-Za-z]+$/;
+  console.log(inputtxt.length);
+  console.log("checking for english alphabets:", inputtxt);
+  console.log("from validation", letters.test(inputtxt));
+  if (letters.test(inputtxt)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 //this is for word count
 function wordCount(txt) {
@@ -19,7 +17,7 @@ function wordCount(txt) {
   var wordcount = 0;
   for (var word of word_count) {
     if (word !== "") {
-      console.log(word);
+      console.log("word", word);
       wordcount++;
     }
   }
@@ -39,7 +37,6 @@ function unique_char(str) {
   var uniql = "";
   for (var x = 0; x < str.length; x++) {
     if (str.charAt(x) == " ") {
-      console.log("space");
       continue;
     }
     if (uniql.indexOf(str.charAt(x)) == -1) {
@@ -63,7 +60,7 @@ function sortString(str) {
 }
 
 module.exports.englishAlphabets = englishAlphabets;
-module.exports.sortString=sortString;
+module.exports.sortString = sortString;
 module.exports.countChar = countChar;
 module.exports.unique_char = unique_char;
 module.exports.wordCount = wordCount;
