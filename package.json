@@ -1,0 +1,12 @@
+{
+  "name": "my-rest-api",
+  "version": "1.0.0",
+  "description": "rest api",
+  "main": "server.js",
+  "author": "packiavaradhan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.6"
+  }
+}
