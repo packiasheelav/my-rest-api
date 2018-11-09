@@ -1,9 +1,6 @@
 //check if it is english alphabets
 function englishAlphabets(inputtxt) {
   var letters = /^[A-Za-z]+$/;
-  console.log(inputtxt.length);
-  console.log("checking for english alphabets:", inputtxt);
-  console.log("from validation", letters.test(inputtxt));
   if (letters.test(inputtxt)) {
     return true;
   } else {
@@ -17,7 +14,6 @@ function wordCount(txt) {
   var wordcount = 0;
   for (var word of word_count) {
     if (word !== "") {
-      console.log("word", word);
       wordcount++;
     }
   }

@@ -16,21 +16,14 @@ const generate_Key = generateKeys.generateKey;
 
 router.post("/", (req, res) => {
   var jsontext = req.body;
-  console.log("jsontext", jsontext);
   let content = JSON.parse(JSON.stringify(jsontext));
   res.setHeader("Content-Type", "application/json");
   if (validateInput(content.text.split(" ").join(""))) {
     let txt = content.text;
     var rev = sortt(txt);
-    console.log("rev   :", jsontext);
     let withNoDigits = txt.replace(/\d/g, "");
 
-    console.log("withNoDigits", withNoDigits);
-
     var rev = sortt(withNoDigits);
-
-    //check the input if it is only english alphabet
-    console.log("validate the input", validateInput(rev.split(" ").join("")));
 
     //letter count with space
     let letterCount = txt.length;
@@ -40,12 +33,9 @@ router.post("/", (req, res) => {
     withoutSpace = str.length;
 
     //letter frequency
-    console.log("rev", rev);
     unq_chars = uniqueChar(rev);
-    console.log("character in a word", unq_chars);
     var char_array = [];
     for (var i = 0; i < unq_chars.length; i++) {
-      console.log(unq_chars[i] + " : " + countChars(txt, unq_chars[i]));
       char_array.push(
         generate_Key(unq_chars[i], countChars(txt, unq_chars[i]))
       );
