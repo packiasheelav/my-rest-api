@@ -18,7 +18,7 @@ router.post("/", (req, res) => {
   var jsontext = req.body;
   let content = JSON.parse(JSON.stringify(jsontext));
   res.setHeader("Content-Type", "application/json");
-  if (validateInput(content.text.split(" ").join(""))) {
+  if (validateInput(content.text.split(" ").join("")) && (content.text==="")) {
     let txt = content.text;
     var rev = sortt(txt);
     let withNoDigits = txt.replace(/\d/g, "");
@@ -60,7 +60,8 @@ router.post("/", (req, res) => {
       "        }";
 
     res.send(string);
-  } else {
+  } 
+  else {
     res.status(406).end('{ "error": "Only English Alphabets are allowed" }');
   }
 });
