@@ -18,12 +18,15 @@ router.post("/", (req, res) => {
   var jsontext = req.body;
   let content = JSON.parse(JSON.stringify(jsontext));
   res.setHeader("Content-Type", "application/json");
-  if (validateInput(content.text.split(" ").join("")) && (content.text==="")) {
+  if (validateInput(content.text.split(" ").join("")) || (content.text==="")) {
     let txt = content.text;
     var rev = sortt(txt);
     let withNoDigits = txt.replace(/\d/g, "");
 
     var rev = sortt(withNoDigits);
+    
+    let withoutDots=rev.replace(/\./g, '');
+    console.log('without dots',withoutDots);
 
     //letter count with space
     let letterCount = txt.length;
@@ -33,7 +36,7 @@ router.post("/", (req, res) => {
     withoutSpace = str.length;
 
     //letter frequency
-    unq_chars = uniqueChar(rev);
+    unq_chars = uniqueChar(withoutDots);
     var char_array = [];
     for (var i = 0; i < unq_chars.length; i++) {
       char_array.push(

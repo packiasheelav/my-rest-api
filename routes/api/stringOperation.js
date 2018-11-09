@@ -1,6 +1,6 @@
 //check if it is english alphabets
 function englishAlphabets(inputtxt) {
-  var letters = /^[A-Za-z]+$/;
+  var letters = /^[A-Za-z,.]+$/;
   if (letters.test(inputtxt)) {
     return true;
   } else {
